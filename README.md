@@ -185,14 +185,6 @@ The quote is a real sentence from the retrieved chunk, and the reasoning follows
 
 > The model quoted "The 2018 FIFA World Cup was won by France." The sentence is not in any retrieved chunk, so the check returns `False` and the app does not show the answer.
 
-### Example: failure the quote check does not catch
-
-> **Q:** How do I deploy FastAPI on Heroku?
-
-> The model quoted real sentences about deploying to FastAPI Cloud, then concluded that this "can be used to deploy FastAPI on Heroku". The docs never mention Heroku. The quotes are grounded, but the conclusion is not supported by them.
-
-The prompt must keep the training format (4 `<DOC>` blocks, then `Question:`).
-
 ## Repository contents
 
 | File | Purpose |
