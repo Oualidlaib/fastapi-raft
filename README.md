@@ -100,23 +100,34 @@ There is no formal benchmark. I ran 6 hand-picked questions through the full pip
 | Deploy FastAPI on Heroku (not in the docs) | True | Quotes are real, but the answer is **unsupported** (see below) |
 | Who won the 2018 football World Cup? (out of scope) | **False** | Answered from memory with an invented quote |
 
-### Example: success
+## Getting started (Kaggle)
 
-> **Q:** How do I run a function after the response is sent in FastAPI?
-> **A:** Use a `BackgroundTasks` parameter in the path operation function or dependency to schedule a function that runs after the response is sent.
+This guide you to run project runs on a free Kaggle notebook.
 
-The quote is a real sentence from the retrieved chunk, and the reasoning follows from it.
+### 1. Create the notebook
+1. Go to [kaggle.com](https://www.kaggle.com), then **Create, New Notebook**.
+2. Open **Settings** in the right sidebar and set:
+   - **Accelerator:** GPU T4 x2
 
-### Example: failure caught by the quote check
+### 2. Install the dependencies (cell 1)
+```python
+!pip install -q -U bitsandbytes peft accelerate sentence-transformers langchain-community faiss-cpu
+```
 
-> **Q:** Who won the 2018 football World Cup?
-> The model quoted "The 2018 FIFA World Cup was won by France." The sentence is not in any retrieved chunk, so the check returns `False` and the app does not show the answer.
+### 3. Get the code and the index (cell 2)
+```python
+!git clone https://github.com/Oualidlaib/fastapi-raft.git
+%cd fastapi-raft
+!ls faiss_index 
+```
 
-### Example: failure the quote check does not catch
+### 4. Load the model and ask a question (cells 3 and 4)
+Paste the code from [Usage](#usage) into a cell and run it. The first run downloads the base model and adapter from Hugging Face. Then ask your own question:
 
-> **Q:** How do I deploy FastAPI on Heroku?
-> The model quoted real sentences about deploying to FastAPI Cloud, then concluded that this "can be used to deploy FastAPI on Heroku". The docs never mention Heroku. The quotes are grounded, but the conclusion is not supported by them.
-
+```python
+answer, grounded, full_text = ask("How do I declare a query parameter with a maximum length?")
+print(answer if grounded else "No supported answer found in the retrieved documentation.")
+```
 ## Usage
 
 ```python
@@ -159,6 +170,26 @@ def ask(question, k=4):
 answer, grounded, _ = ask("How do I run a function after the response is sent in FastAPI?")
 print(answer if grounded else "No supported answer found in the retrieved documentation.")
 ```
+
+### Example: success
+
+> **Q:** How do I run a function after the response is sent in FastAPI?
+
+> **A:** Use a `BackgroundTasks` parameter in the path operation function or dependency to schedule a function that runs after the response is sent.
+
+The quote is a real sentence from the retrieved chunk, and the reasoning follows from it.
+
+### Example: failure caught by the quote check
+
+> **Q:** Who won the 2018 football World Cup?
+
+> The model quoted "The 2018 FIFA World Cup was won by France." The sentence is not in any retrieved chunk, so the check returns `False` and the app does not show the answer.
+
+### Example: failure the quote check does not catch
+
+> **Q:** How do I deploy FastAPI on Heroku?
+
+> The model quoted real sentences about deploying to FastAPI Cloud, then concluded that this "can be used to deploy FastAPI on Heroku". The docs never mention Heroku. The quotes are grounded, but the conclusion is not supported by them.
 
 The prompt must keep the training format (4 `<DOC>` blocks, then `Question:`).
 
