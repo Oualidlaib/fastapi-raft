@@ -97,7 +97,6 @@ There is no formal benchmark. I ran 6 hand-picked questions through the full pip
 | Maximum length of a query parameter | True | Correct (`Query(max_length=50)`), but quotes too much |
 | Read a cookie in a path operation | **False** | Invented quote; the retrieved chunks did not contain it |
 | How do I use OAuth2 scopes? | True | Correct, but only explains the concept |
-| Deploy FastAPI on Heroku (not in the docs) | True | Quotes are real, but the answer is **unsupported** (see below) |
 | Who won the 2018 football World Cup? (out of scope) | **False** | Answered from memory with an invented quote |
 
 ## Getting started (Kaggle)
