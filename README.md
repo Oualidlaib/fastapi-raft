@@ -136,7 +136,7 @@ base = AutoModelForCausalLM.from_pretrained(BASE_MODEL, quantization_config=bnb,
 model = PeftModel.from_pretrained(base, ADAPTER).eval()
 
 embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
-db = FAISS.load_local("faiss-index", embeddings, allow_dangerous_deserialization=True)
+db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
 
 def ask(question, k=4):
@@ -167,6 +167,7 @@ The prompt must keep the training format (4 `<DOC>` blocks, then `Question:`).
 | File | Purpose |
 |---|---|
 | `build_index.ipynb` | Build the FAISS index from FastAPI markdown files (Kaggle)|
+| `faiss_index/` | Prebuilt FAISS index of the FastAPI docs chunks (`index.faiss` + `index.pkl`), needed by the usage example |
 | `build_dataset.py` | Generates the synthetic RAFT dataset from the FAISS index |
 | `finetune_kaggle.ipynb` | QLoRA training notebook (Kaggle) |
 | `raft_train.jsonl` | The training data |
