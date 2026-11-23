@@ -11,7 +11,7 @@ A portfolio project that combines **RAG** and **fine-tuning**. I built a retriev
 - Dataset: 264 synthetic examples (235 train, 26 validation), generated from the FastAPI docs with an LLM and filtered by script.
 - The fine-tuned model reliably produces the trained answer format: short reasoning with verbatim quotes, then a final answer.
 - A quote check in the app verifies that every quote really appears in the retrieved documents.
-- Honest result: on 6 test questions the model answered well when the docs contained the answer, but it **invented quotes** when they did not. See [Results](#results).
+- Result: on 6 test questions the model answered well when the docs contained the answer, but it **invented quotes** when they did not. See [Results](#results).
 
 ## Pipeline
 
@@ -27,7 +27,7 @@ flowchart LR
   G --> H["Answer + quote check"]
 ```
 
-## What is RAFT?
+## RAFT
 
 In RAFT, each training example is a question plus a mix of documents: one **oracle** document that contains the answer, and several **distractors** that do not. The target answer is a chain-of-thought that quotes the oracle and then concludes. In a fraction of examples the oracle is left out of the context, which pushes the model to learn the domain instead of only copying from the context.
 
