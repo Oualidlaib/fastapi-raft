@@ -89,7 +89,7 @@ Training loss fell from about 1.85 to about 0.12. Validation loss reached its mi
 
 ## Results
 
-There is no formal benchmark. I ran 6 hand-picked questions through the full pipeline (FAISS retrieval of 4 chunks, then the fine-tuned model). "Quotes grounded" means every quoted passage appears verbatim in the retrieved chunks. All outputs are in [`test_results.md`](test_results.md).
+There is no formal benchmark. I ran 5 hand-picked questions through the full pipeline (FAISS retrieval of 4 chunks, then the fine-tuned model). "Quotes grounded" means every quoted passage appears verbatim in the retrieved chunks. All outputs are in [`test_results.md`](test_results.md).
 
 | Question | Quotes grounded | Assessment |
 |---|---|---|
