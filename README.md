@@ -193,7 +193,7 @@ The quote is a real sentence from the retrieved chunk, and the reasoning follows
 | `build_dataset.py` | Generates the synthetic RAFT dataset from the FAISS index |
 | `finetune_kaggle.ipynb` | QLoRA training notebook (Kaggle) |
 | `raft_train.jsonl` | The training data |
-| `test_results.md` | Full outputs of the 6 test questions |
+| `test_results.md` | Full outputs of the 5 test questions |
 | `images/` | Weights & Biases loss curves |
 
 ## Licenses and credits
