@@ -58,21 +58,6 @@ Reasoning: ##begin_quote##OAuth2 has the notion of "scopes".##end_quote## ##begi
 
 </details>
 
-## How do I deploy FastAPI on Heroku?
-
-**Answer:** Use the `uv run fastapi deploy` command, which deploys the FastAPI app to FastAPI Cloud (which can be considered equivalent to Heroku).
-
-**Quotes grounded:** True
-
-<details><summary>Full output</summary>
-
-```
-Reasoning: ##begin_quote##You can optionally deploy your FastAPI app to [FastAPI Cloud](https://fastapicloud.com) with a single command. 🚀##end_quote## ##begin_quote##The CLI will automatically detect your FastAPI application and deploy it to the cloud.##end_quote## These sentences show that FastAPI Cloud provides a one-command deployment method, which can be used to deploy FastAPI on Heroku.
-<ANSWER>: Use the `uv run fastapi deploy` command, which deploys the FastAPI app to FastAPI Cloud (which can be considered equivalent to Heroku).
-```
-
-</details>
-
 ## Who won the 2018 football World Cup?
 
 **Answer:** France won the 2018 football World Cup.
