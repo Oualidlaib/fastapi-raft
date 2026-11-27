@@ -27,7 +27,7 @@ QUESTIONS_PER_CHUNK = 5
 DOCS_PER_EXAMPLE = 4       
 P_ORACLE = 0.8             
 MIN_CHUNK_CHARS = 300      
-OUTPUT_FILE = "raft_train-v5.jsonl"
+OUTPUT_FILE = "raft_train.jsonl"
 
 client = OpenAI(
     api_key=os.environ["GROQ_API_KEY"],
